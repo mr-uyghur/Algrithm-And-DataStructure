@@ -38,3 +38,64 @@ function sumAll(arr) {
     }
     
    console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])) ;
+
+  //  Seek and Destroy
+  // destroyer([1, 2, 3, 1, 2, 3], 2, 3) should return [1, 1].
+  // destroyer([3, 5, 1, 2, 2], 2, 3, 5) should return [1].
+  function destroyer(arr) {
+    //  convert arguments into an array
+    var args = Array.prototype.slice.call(arguments);
+    
+    // user nested for loop to loop through arr and then arguements
+    for(let i =0; i< arr.length; i++){
+      for(let j=0; j<args.length; j++){
+        if(arr[i] === args[j]){
+          delete arr[i]
+        }
+      }
+    }
+    return arr.filter(Boolean)
+    }
+    
+    destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+    // Wherefore art thou
+    function whatIsInAName(collection, source) {
+      // save source keys in a var
+      var srcKeys = Object.keys(source);
+      // use filter to loop through each item in collection
+      return collection.filter(function(obj) {
+        // then loop through each item in the object
+        for (var i = 0; i < srcKeys.length; i++) {
+          // use a if statement to check if the object in the collection doesn’t have the key and the property value doesn’t match the value in source.
+          if (
+            !obj.hasOwnProperty(srcKeys[i]) ||
+            obj[srcKeys[i]] !== source[srcKeys[i]]
+          ) {
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+    
+    whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+    // Spinal Tap Case
+    // spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".
+    // spinalCase("The_Andy_Griffith_Show") should return "the-andy-griffith-show".
+    // spinalCase("Teletubbies say Eh-oh") should return "teletubbies-say-eh-oh".
+    function spinalCase(str) {
+      // split the str with following conditions
+  // a whitespace character [\s] is encountered
+  // underscore character [_] is encountered
+  // or is followed by an uppercase letter [(?=[A-Z])]
+   let newWords = str.split(/\s|_|(?=[A-Z])/)
+  //  convert the splitted arr in to str
+    let words = newWords.join('-')
+    // return the str with all lower cases
+    return words.toLowerCase()
+  }
+  
+  spinalCase('This Is Spinal Tap');
