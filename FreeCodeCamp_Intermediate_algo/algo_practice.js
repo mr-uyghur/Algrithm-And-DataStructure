@@ -145,3 +145,38 @@ function myReplace(str, before, after) {
   }
   
   myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+  // DNA Pairing
+  // Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+  // For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+  function pairElement(str) {
+    // create data object for the pairs
+    let data = {
+      A:"T",
+      T:"A",
+      C:"G",
+      G:"C"
+    }
+    // split each char in srt
+    var arr = str.split("")
+    // use map to pair char in arr with its pairs
+    return arr.map(item =>[item, data[item]])
+  }
+  
+  pairElement("GCG");
+
+  // Missing letters
+  // fearNotLetter("abce") should return "d".
+  function fearNotLetter(str) {
+    // loop through str to find the missing letter
+    for(let i =0; i< str.length; i++){
+      let index = str.charCodeAt(i)
+      // use if statement to check for missing char with chatCodeat
+      if(index !== str.charCodeAt(0)+i){
+        return String.fromCharCode(index - 1)
+      } 
+    }
+    return undefined;
+  }
+  
+  fearNotLetter("abce");
