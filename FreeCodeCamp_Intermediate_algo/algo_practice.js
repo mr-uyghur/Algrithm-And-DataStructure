@@ -99,3 +99,49 @@ function sumAll(arr) {
   }
   
   spinalCase('This Is Spinal Tap');
+
+
+//  Pig Latin
+// translatePigLatin("california") should return "aliforniacay".
+//Should handle words where the first vowel comes in the middle of the word. 
+// translatePigLatin("schwartz") should return "artzschway".
+function translatePigLatin(str) {
+  // create var for vowels
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  // place holder var for new string
+  let newStr = "";
+    // check in the first char of str is a vowel
+    // use the indexOf() method to check if the first character exists in our vowels array.
+    if (vowels.indexOf(str[0]) > -1) {
+        newStr = str + "way";
+        return newStr;
+    } else {
+        let firstMatch = str.match(/[aeiou]/g) || 0;
+        // The vowel variable will give us the index of the first vowel found in the string using indexOf().
+        let vowel = str.indexOf(firstMatch[0]);
+        newStr = str.substring(vowel) + str.substring(0, vowel) + "ay";
+        return newStr;
+    }
+}
+translatePigLatin("consonant");
+
+// Search and Replace
+// myReplace("Let us go to the store", "store", "mall")
+//  should return "Let us go to the mall"
+// myReplace("His name is Tom", "Tom", "john") should return "His name is John"
+function myReplace(str, before, after) {
+  //  find index whwere before is on str
+  var index = str.indexOf(before)
+  // verify if the first index is upper case
+  if(str[index] === str[index].toUpperCase()){
+  // if true change capitilize the after paramiter
+   after = after.charAt(0).toUpperCase() + after.slice(1)
+  } else{
+    after = after.charAt(0).toLowerCase() + after.slice(1)
+  }
+  // replace the before arguement with after
+  str = str.replace(before, after)
+  return str
+  }
+  
+  myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
