@@ -114,3 +114,114 @@ for(let i = 1; i<= num; i++){
 return sum
 }
 console.log(sumPrimes(10))
+
+
+// Smallest Common Multiple
+// Find the smallest common multiple of the provided parameters that can be evenly divided by both, 
+// as well as by all sequential numbers in the range between these parameters.
+// For example, if given 1 and 3,
+//  find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. 
+//  The answer here would be 6.
+
+function smallestCommons(arr) {
+  // Sort array from greater to lowest
+  // This line of code was from Adam Doyle (http://github.com/Adoyle2014)
+  arr.sort(function(a, b) {
+    return b - a;
+  });
+  // Create new array and add all values from greater to smaller from the
+  // original array.
+  var newArr = [];
+  for (var i = arr[0]; i >= arr[1]; i--) {
+    newArr.push(i);
+  }
+  // Variables needed declared outside the loops.
+  var quot = 0;
+  var loop = 1;
+  var n;
+  // Run code while n is not the same as the array length.
+  do {
+    quot = newArr[0] * loop * newArr[1];
+    for (n = 2; n < newArr.length; n++) {
+      if (quot % newArr[n] !== 0) {
+        break;
+      }
+    }
+    loop++;
+  } while (n !== newArr.length);
+
+  return quot;
+}
+// test here
+smallestCommons([1, 5]);
+
+// Drop it
+// Given the array arr, iterate through and remove each element starting from the first element (the 0 index)
+//  until the function func returns true when the iterated element is passed through it.
+
+function dropElements(arr, func) {
+  for(let i =0; i < arr.length; i++){
+    if(func(arr[0])){
+      break
+    } else{
+      arr.shift()
+    }
+  }
+  return arr;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
+
+// Steamroller
+// Flatten a nested array. You must account for varying levels of nesting.
+// steamrollArray([[["a"]], [["b"]]]) should return ["a", "b"].
+// steamrollArray([1, [2], [3, [[4]]]]) should return [1, 2, 3, 4].
+
+function steamrollArray(arr) {
+  // place holder for array
+  let newArr = []
+  // loop through arr and put each value to the new array
+  for(let i=0; i < arr.length; i++) {
+    if(Array.isArray(arr[i])){
+      let subArr = steamrollArray(arr[i]);
+      newArr = newArr.concat(subArr);
+    } else {
+      newArr.push(arr[i])
+    }
+   
+  }
+  // return new array
+  return newArr
+}
+console.log(steamrollArray([1, [2], [3, [[4]]]]));
+
+// Binary Agents
+// Return an English translated sentence of the passed binary string.
+function binaryAgent(str) {
+  var biString = str.split(" ");
+  var uniString = [];
+
+  /*using the radix (or base) parameter in parseInt, we can convert the binary
+      number to a decimal number while simultaneously converting to a char*/
+
+  for (var i = 0; i < biString.length; i++) {
+    uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
+  }
+
+  // we then simply join the string
+  return uniString.join("");
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+// Everything Be True
+function truthCheck(collection, pre) {
+  
+  // loop through collection data and check if pre exists within that data
+  // return true 
+  // else return false
+  return collection.every(item => item[pre])
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
