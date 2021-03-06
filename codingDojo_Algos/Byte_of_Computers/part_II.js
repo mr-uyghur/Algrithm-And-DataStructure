@@ -16,7 +16,7 @@ function iFibonacci(n) {
     }
     return fibs[0]
 }
-console.log(iFibonacci(3))
+console.log(iFibonacci(5))
 
 // recursive solution
 function rFibonacci(n) {
@@ -28,7 +28,7 @@ function rFibonacci(n) {
     return num
 }
 
-console.log(rFibonacci(4))
+console.log(rFibonacci(89))
 
 // iterative Binary search. For example
 // Pseudocode
