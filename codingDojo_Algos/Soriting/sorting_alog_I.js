@@ -44,3 +44,23 @@ function selection(nums){
 }
 
 console.log(selection(arr))
+
+// insertion sort
+let arr = [42,23,4,16,8,15]
+
+function insertion(nums){
+    
+    let sorted = []
+    for(let i=1; i <= nums.length-1;i++){
+        element = nums[i]
+        j = i
+        while(j> 0 && nums[j-1] > element){
+            nums[j] = nums[j-1]
+            j = j - 1 
+
+        }
+        nums[j] = element
+    }
+    return nums
+}
+console.log(insertion(arr))
