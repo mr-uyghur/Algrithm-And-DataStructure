@@ -66,6 +66,14 @@ class LinkedList {
     }
     return currentNode
 }
+    // remove
+    remove(index){
+        const leader = this.findIndex(index-1)
+        const pointerHolder = leader.next
+        leader.next = pointerHolder.next
+        this.length--
+        return this.printList()
+    }
 }
 const myList = new LinkedList(100)
 myList.append(200)
