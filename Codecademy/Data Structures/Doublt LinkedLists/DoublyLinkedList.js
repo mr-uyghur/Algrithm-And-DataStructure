@@ -70,6 +70,28 @@ class DoublyLinkedList {
 
     }
 
+    removeByData(data) {
+        // loop through the list to find matching node,return null if no match
+        // check if the matching node is head or tail,
+        // call removeHead or RemoveTail accordingly
+        // if the node is somewhere in the middle
+        // remove it by resetting the pointer of prev node
+        let nodeToRemove;
+        let currentNode = this.head
+        while (currentNode !== null) {
+            if (currentNode.data === data) {
+                // this means we have found the matching node
+                nodeToRemove = currentNode;
+                break;
+            }
+            currentNode = currentNode.getNextNode()
+        }
+        if (!nodeToRemove) {
+            return null
+        }
+
+    }
+
 
     printList() {
         let currentNode = this.head;
