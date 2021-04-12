@@ -7,6 +7,7 @@ function bubbleSort(nums){
     for(let i=0; i < nums.length; i++){ //
         //compare values inside the nested forloop
         for(let j=0; j < nums.length; j++){ //
+            //chech if left side is greater than right side
             if(nums[j] > nums[j+1]){
                 //swap values 
                 let temp = nums[j]
