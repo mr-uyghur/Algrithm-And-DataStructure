@@ -59,6 +59,7 @@ class LinkedList {
     }
     output += "<tail>";
     console.log(output);
+   
   }
 }
 
