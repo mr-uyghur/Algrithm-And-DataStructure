@@ -13,6 +13,13 @@ class Queue {
     this.size += 1;
     console.log(`Added ${data}! Queue size is now ${this.size}`);
   }
+
+  dequeue() {
+    const data = this.queue.removeHead();
+    this.size--;
+    console.log(`Removed ${data} from queue! Queue size is now ${this.size}.`);
+    return data;
+  }
 }
 
 module.exports = Queue;
