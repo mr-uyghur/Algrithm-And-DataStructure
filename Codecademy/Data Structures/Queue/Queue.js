@@ -1,17 +1,33 @@
-const LinkedList = require("./Linkedlist");
+const LinkedList = require("./LinkedList");
 
 class Queue {
-  constructor() {
+  constructor(maxSize = Infinity) {
     this.queue = new LinkedList();
     this.size = 0;
+    this.maxSize = maxSize;
   }
 
-  //enqueue method
+  //this method checks if the queue has reached capacity
+  hasRoom() {
+    if (this.size < this.maxSize) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isEmpty() {
+    if (this.size == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   enqueue(data) {
     this.queue.addToTail(data);
-    //also increase the size of queue
-    this.size += 1;
-    console.log(`Added ${data}! Queue size is now ${this.size}`);
+    this.size++;
+    console.log(`Added ${data} to queue! Queue size is now ${this.size}.`);
   }
 
   dequeue() {
@@ -23,9 +39,3 @@ class Queue {
 }
 
 module.exports = Queue;
-
-const restaurantOrder = new Queue();
-console.log(`restaurantOrder queue has ${restaurantOrder.size} orders.\n`);
-restaurantOrder.enqueue("apple pie");
-restaurantOrder.enqueue("roast chicken");
-restaurantOrder.enqueue("quinoa salad");
