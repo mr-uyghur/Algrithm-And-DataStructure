@@ -25,21 +25,27 @@ class Queue {
   }
 
   enqueue(data) {
-    this.queue.addToTail(data);
-    this.size++;
-    console.log(`Added ${data} to queue! Queue size is now ${this.size}.`);
+    if (this.hasRoom()) {
+      this.queue.addToTail(data);
+      this.size++;
+      console.log(`Added ${data} to queue! Queue size is now ${this.size}.`);
+    } else {
+      throw "Queue is full!";
+    }
   }
 
   dequeue() {
-    if(!this.isEmpty()){
+    if (!this.isEmpty()) {
       const data = this.queue.removeHead();
       this.size--;
-      console.log(`Removed ${data} from queue! Queue size is now ${this.size}.`);
+      console.log(
+        `Removed ${data} from queue! Queue size is now ${this.size}.`
+      );
       return data;
-      }
-      if(this.isEmpty()){
-        throw('Queue is empty!')
-      }
+    }
+    if (this.isEmpty()) {
+      throw "Queue is empty!";
+    }
   }
 }
 
