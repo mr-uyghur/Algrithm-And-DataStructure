@@ -37,6 +37,32 @@ Else
       }
     }
   }
+
+   //getter node method
+  /*--------------------------------------------------
+  If target value is the same as the current node value
+  Return the current node
+Else
+  If target value is less than the root node's value and there is a left child node
+    Recursively search from the left child node
+  Else if there is a right child node
+    Recursively search from the right child node
+  ---------------------------------------------------*/
+  getNodeByValue(value){
+    if(value === this.value){
+      return this
+    }
+    else if((this.left) && (value < this.value)){
+      return this.left.getNodeByValue(value)
+    }
+    else if((this.right) && (value > this.value)){
+      return this.right.getNodeByValue(value)
+    }
+    else{
+    return null
+    }
+  }
+  
 };
 
 module.exports = BinaryTree;
