@@ -12,7 +12,6 @@ class TreeNode:
         print("Removing" + child_node.value + "from" + self.value)
         # new_children = []
 
-        for item in self.children:
 
             # add items from the original children of node
             # to the new children list,
@@ -21,17 +20,26 @@ class TreeNode:
             #     new_children.append(item)
 
             # self.children = new_children
-            
-            #updated remove function with list comprehension
-            self.children = [
+
+            # updated remove function with list comprehension
+        self.children = [
                 item for item in self.children if item != child_node
             ]
+    def traverse(self):
+         # moves through each node referenced from self downwards
+        print("Traversing...")
+        nodes_to_visit = [self]
+        while len(nodes_to_visit) > 0:
+            current_node = nodes_to_visit.pop()
+            print(current_node.value)
+            nodes_to_visit += current_node.children
 
+root = TreeNode("CEO")
+first_child = TreeNode("Vice-President")
+second_child = TreeNode("Head of Marketing")
+third_child = TreeNode("Marketing Assistant")
 
-root = TreeNode("I am Root")
-child = TreeNode("A wee sappling")
-bad_seed = TreeNode("Root Rot!")
-
-root.add_child(child)
-root.add_child(bad_seed)
-root.remove_child(bad_seed)
+root.add_child(first_child)
+root.add_child(second_child)
+second_child.add_child(third_child)
+root.traverse()
