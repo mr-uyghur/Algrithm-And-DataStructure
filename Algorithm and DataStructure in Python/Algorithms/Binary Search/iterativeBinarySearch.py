@@ -6,7 +6,9 @@ def binary_search(sorted_list, target):
     while left_pointer < right_pointer:
     # calculate the middle index using the two pointers
         mid_idx = (left_pointer + right_pointer) // 2
+        
         mid_val = sorted_list[mid_idx]
+        print(mid_val)
         if mid_val == target:
             return mid_idx
         if target < mid_val:
@@ -19,8 +21,5 @@ def binary_search(sorted_list, target):
     return "Value not in list"
 
 # test cases
-print(binary_search([5,6,7,8,9], 9))
-print(binary_search([5,6,7,8,9], 10))
-print(binary_search([5,6,7,8,9], 8))
-print(binary_search([5,6,7,8,9], 4))
-print(binary_search([5,6,7,8,9], 6))
+print(binary_search([6, 17, 20, 41, 66, 81, 84, 92 ], 6))
+
