@@ -25,6 +25,7 @@
 # 1 <= s.length <= 104
 # s consists of only English letters and spaces ' '.
 # There will be at least one word in s.
+from typing import List
 
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
