@@ -55,4 +55,4 @@ print(Solution().isAnagram("rat", "car"))          # False
 print(Solution().isAnagram("listen", "silent"))    # True
 print(Solution().isAnagram("triangle", "integral"))# True
 print(Solution().isAnagram("hello", "olleh"))      # True
-print(Solution().isAnagram("apple", "aple"))       # False
+print(Solution().isAnagram("apple", "aple"))       # false
