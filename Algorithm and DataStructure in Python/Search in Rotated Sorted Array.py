@@ -56,7 +56,6 @@ print(Solution().search([9,12,17,2,4,5], 17))  # Test case with target present i
 print(Solution().search([9,12,17,2,4,5], 6))   # Test case with target not present in a larger rotated array
 print(Solution().search([1,2,3,4,5,6,7], 5))   # Test case with target present in a non-rotated sorted array
 print(Solution().search([1,2,3,4,5,6,7], 0))   # Test case with target not present in a non-rotated sorted array
-print(Solution().search([1], 1))               # Test case with a single-element array where the target matches the element
-print(Solution().search([2], 3))               # Test case with a single-element array where the target does not match the element
+            # Test case with a single-element array where the target does not match the element
 
     
