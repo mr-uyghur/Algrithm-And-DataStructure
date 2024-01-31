@@ -21,7 +21,7 @@
 
 class Solution(object):
     def isAnagram(self, s, t):
-        #check if 2 inputes are the same length
+        #check if 2 inputes are the same leng
         #diff lenth str can't be anagram so return False
         if len(s) != len(t):
             return False
