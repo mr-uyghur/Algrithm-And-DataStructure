@@ -32,7 +32,7 @@ class Solution(object):
             maxNum = max(num, num*tempMax, num*tempMin )
             minNum = min(num, num*tempMax, num*tempMin  ) 
             
-            #the following one line of code can replace the 6 lines of code above and it'll still work
+            #the following one line of code can replace the 4 lines of code above and it'll still work
             #-------------------------------------------------------------
 
             # maxNum, minNum = max(num, num*maxNum, num*minNum),min(num, num*maxNum, num*minNum )
