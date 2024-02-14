@@ -18,10 +18,10 @@
 from typing import List
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        #calculate the length of the array list
-        #calculate the sum of the array length from 0 to n.
-        #calculate the sum of 0 to n ( actual length of the arr)
-        #subtract sum of the 0 to n from the length of the array list
+        # calculate the length of the array list
+        # calculate the sum of the array length from 0 to n.
+        # calculate the sum of 0 to n ( actual length of the arr)
+        # subtract sum of the 0 to n from the length of the array list
         n = len(nums)
         nSum = n* (n +1)/2
         arraySum = sum(nums)
